@@ -1,0 +1,32 @@
+ import random
+
+words = ["apple", "banana", "Mango", "Kiwi", "orange"]
+
+original_word = random.choice(words)
+
+
+scrambled_word = ""
+for char in random.sample(original_word, len(original_word)):
+    scrambled_word += char
+
+
+attempts = 5
+
+
+print("Welcome to the Word Scramble Game!")
+print(f"Try to guess the original word from the scrambled word: {scrambled_word}")
+print(f"You have {attempts} attempts.")
+
+
+while attempts > 0:
+    guess = input("Enter your guess: ").strip()
+    
+    if guess == original_word:
+        print("Congratulations! You guessed the correct word!")
+        break
+    else:
+        attempts -= 1
+        print(f"Incorrect! You have {attempts} attempts left.")
+        
+if attempts == 0:
+    print(f"Game over! The correct word was: {original_word}")
